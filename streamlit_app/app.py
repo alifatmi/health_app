@@ -7,8 +7,8 @@ text = st.text_input("Please Proved your text:")
 print('ok')
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
-tokenizer = GPT2Tokenizer.from_pretrained('savemodel')
-model = GPT2LMHeadModel.from_pretrained('savemodel')
+tokenizer = GPT2Tokenizer.from_pretrained('https://github.com/alifatmi/health_app/tree/main/streamlit_app/savemodel')
+model = GPT2LMHeadModel.from_pretrained('https://github.com/alifatmi/health_app/tree/main/streamlit_app/savemodel')
 
 # Generate text
 if len(text)>0:
