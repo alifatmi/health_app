@@ -13,7 +13,9 @@ model = GPT2LMHeadModel.from_pretrained('./streamlit_app/savemodel')
 # Generate text
 if len(text)>0:
   input_ids = tokenizer.encode(text, return_tensors='pt')
-  output = model.generate(input_ids, max_length=20, do_sample=True)
+  output = model.generate(input_ids, max_length=20, do_sample=True,pad_token_id=tokenizer.eos_token_id)
+#   model.generate(**encoded_input, pad_token_id=tokenizer.eos_token_id)
+
   st.write(tokenizer.decode(output[0], skip_special_tokens=True))
 else:
   st.write('Welcome to GPT2')
