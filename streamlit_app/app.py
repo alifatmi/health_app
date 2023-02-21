@@ -1,3 +1,8 @@
+# add profiler to check memory leakage
+import cProfile
+pr = cProfile.Profile()
+pr.enable()
+
 import streamlit as st
 st.title("AI Medical Assistant")
 
@@ -14,10 +19,9 @@ model = GPT2LMHeadModel.from_pretrained('./streamlit_app/savemodel')
 if len(text)>0:
   input_ids = tokenizer.encode(text, return_tensors='pt')
   output = model.generate(input_ids, max_length=20, do_sample=True,pad_token_id=tokenizer.eos_token_id)
-#   model.generate(**encoded_input, pad_token_id=tokenizer.eos_token_id)
-
   st.write(tokenizer.decode(output[0], skip_special_tokens=True))
 else:
   st.write('Welcome to GPT2')
-
-# Display output
+# add file of profiler  
+pr.disable()
+pr.dump_stats('profile.pstat')
