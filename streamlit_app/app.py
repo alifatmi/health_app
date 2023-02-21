@@ -1,7 +1,7 @@
-# add profiler to check memory leakage
-import cProfile
-pr = cProfile.Profile()
-pr.enable()
+# # add profiler to check memory leakage
+# import cProfile
+# pr = cProfile.Profile()
+# pr.enable()
 
 import streamlit as st
 st.title("AI Medical Assistant")
@@ -23,5 +23,5 @@ if len(text)>0:
 else:
   st.write('Welcome to GPT2')
 # add file of profiler  
-pr.disable()
-pr.dump_stats('profile.pstat')
+# pr.disable()
+# pr.dump_stats('profile.pstat')
